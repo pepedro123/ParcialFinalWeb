@@ -20,4 +20,10 @@ public class Pokemon {
     private Date fecha_descubrimiento;
     private Integer generacion;
     private String uuid;
+
+    @ManyToOne
+    @JoinColumn(name="entrenador")
+    private Entrenador entrenador;
 }
+
+

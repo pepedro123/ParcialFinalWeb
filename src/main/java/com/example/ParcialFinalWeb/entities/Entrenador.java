@@ -1,9 +1,13 @@
 package com.example.ParcialFinalWeb.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import lombok.Data;
 
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.List;
+
 @Data
 @Entity
 public class Entrenador {
@@ -15,4 +19,9 @@ public class Entrenador {
     private Date fecha_vinculacion;
     private Integer pueblo_id;
     private String uuid;
+    private Pokemon pokemon;
+    @JsonIgnore
+    @OneToMany(mappedBy="pokemon")
+    private List<Pokemon> pokemons;
+
 }
