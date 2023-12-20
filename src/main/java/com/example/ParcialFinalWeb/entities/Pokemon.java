@@ -24,6 +24,8 @@ public class Pokemon {
     @ManyToOne
     @JoinColumn(name="entrenador")
     private Entrenador entrenador;
+
+
 }
 
 

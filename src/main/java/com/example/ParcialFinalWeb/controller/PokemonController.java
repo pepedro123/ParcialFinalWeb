@@ -5,10 +5,7 @@ import com.example.ParcialFinalWeb.entities.Pokemon;
 import com.example.ParcialFinalWeb.repositories.EntrenadorRepository;
 import com.example.ParcialFinalWeb.repositories.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,4 +32,18 @@ public class PokemonController {
 
         return pokemon.get();
     }
+
+    @PostMapping
+    public Pokemon postPokemon(@RequestBody Pokemon pokemon) {
+
+       pokemonRepository.save(pokemon);
+
+        return pokemon;
+
+
+    }
+
+
+
+
 }

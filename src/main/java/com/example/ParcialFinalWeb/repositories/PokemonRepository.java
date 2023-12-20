@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface PokemonRepository extends JpaRepository<Pokemon, Integer> {
 
     public Optional<Pokemon> findByTipopokemon(Integer tipo_pokemon);
+    public Optional<Pokemon> findByUuid(String uuid);
 }

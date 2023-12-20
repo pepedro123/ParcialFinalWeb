@@ -4,10 +4,8 @@ import com.example.ParcialFinalWeb.entities.Entrenador;
 import com.example.ParcialFinalWeb.entities.Pokemon;
 import com.example.ParcialFinalWeb.repositories.EntrenadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.Option;
 import java.util.List;
@@ -35,9 +33,20 @@ public Entrenador getEmail(@PathVariable String email){
     return entrenador.get();
 }
 @GetMapping("/login/{uuid}/pokemon")
-public Entrenador getPokemon(@PathVariable Integer uuid){
+public Entrenador getPokemon(@PathVariable String uuid){
 
     Optional<Entrenador> entrenador = entrenadorRepository.findByUuid(uuid);
 return entrenador.get();
 }
+
+
+    @PostMapping("/entredador/{uuid}/pokemon/{uuid}")
+    public ResponseEntity<?> agregarPokemonAEntrenador(
+            @PathVariable String uuidEntrenador,
+            @PathVariable String uuidPokemon
+    ) {
+        EntrenadorController pokemonService = null;
+        ResponseEntity<?> response = pokemonService.agregarPokemonAEntrenador(uuidEntrenador, uuidPokemon);
+        return response;
+    }
 }
