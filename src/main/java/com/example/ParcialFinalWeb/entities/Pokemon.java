@@ -1,7 +1,6 @@
 package com.example.ParcialFinalWeb.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,6 +11,8 @@ import java.util.Date;
 public class Pokemon {
 
     @Id
+    @SequenceGenerator(name = "pokemon_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pokemon_id_seq")
     private Integer serial;
     private String nombre;
     private String descripcion;

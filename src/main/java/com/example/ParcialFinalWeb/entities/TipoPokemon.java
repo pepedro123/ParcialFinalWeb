@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Tipo_Pokemon {
+public class TipoPokemon {
     @Id
     private  Integer serial;
     private String descripcion;

@@ -10,6 +10,7 @@ public class Entrenador {
     private Integer serial;
     private String nombre;
     private String apellido;
+    private String email;
     private Date fecha_nacimiento;
     private Date fecha_vinculacion;
     private Integer pueblo_id;
