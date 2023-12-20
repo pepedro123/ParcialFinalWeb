@@ -20,7 +20,7 @@ public class PokemonService {
     @Autowired
     private EntrenadorRepository entrenadorRepository;
 
-    public ResponseEntity<?> agregarPokemonAEntrenador(String uuid, String uuid) {
+    public ResponseEntity<?> agregarPokemonAEntrenador(String uuidPokemon, String uuid) {
 
         Optional<Entrenador> optionalEntrenador = entrenadorRepository.findByUuid(uuid);
 
@@ -29,7 +29,7 @@ public class PokemonService {
 
 
             boolean pokemonYaAsociado = entrenador.getPokemons().stream()
-                    .anyMatch(pokemon -> pokemon.getUuid().equals(uuid));
+                    .anyMatch(pokemon -> pokemon.getUuid().equals(uuidPokemon));
 
             if (pokemonYaAsociado) {
                 return ResponseEntity.badRequest().body(Map.of("error", true, "message", "El Pokémon ya está registrado al entrenador"));
